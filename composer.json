@@ -1,0 +1,46 @@
+{
+  "name": "dynamic/adventure",
+  "description": "Adventure game build in react",
+  "authors": [
+    {
+      "name": "Dynamic",
+      "email": "dev@dynamicagency.com",
+      "homepage": "http://www.dynamicagency.com"
+    }
+  ],
+  "keywords": [
+    "silverstripe",
+    "react",
+    "graphql",
+    "redux"
+  ],
+  "type": "silverstripe-module",
+  "license": "BSD-3-Clause",
+  "require": {
+    "php": ">=5.3.3",
+    "silverstripe/cms": "^3.5",
+    "silverstripe/framework": "^3.5",
+	"silverstripe/graphql": "*"
+  },
+  "require-dev": {
+    "phpunit/PHPUnit": "~3.7@stable",
+	"silverstripe/graphql-devtools": "*"
+  },
+  "autoload": {
+    "psr-4": {
+      "Dynamic\\Adventure\\": "src/",
+      "Dynamic\\Adventure\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "installer-name": "adventure",
+    "branch-alias": {
+      "dev-master": "1.0.x-dev"
+    }
+  },
+  "config": {
+    "process-timeout": 600
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}

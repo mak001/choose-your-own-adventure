@@ -1,0 +1,5 @@
+# ignore composer vendor folder
+/vendor/
+/node_modules/
+
+.idea

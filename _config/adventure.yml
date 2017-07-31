@@ -1,0 +1,31 @@
+---
+Name: Adventure
+---
+
+SilverStripe\GraphQL\Controller:
+  schema:
+    scaffolding:
+      types:
+        Dynamic\Adventure\Models\AdventurePage:
+          fields:
+            ID: 'The unique identifier of the adventure page'
+            Content: 'The text of the adventure page'
+          operations:
+            read:
+              description: 'Gets adventure pages'
+              resolver: Dynamic\Adventure\Resolvers\ReadAdventuresResolver
+              args:
+                ID: Int!(1)
+          nestedQueries:
+            Choices:
+              description: 'The choices of this adventure page'
+        Dynamic\Adventure\Models\AdventureChoice:
+          fields:
+            ID: 'The unique identifier of the adventure choice'
+            Content: 'The text of the choice'
+            GoTo: 'The adventure page this choice goes to'
+          operations:
+            read:
+              description: 'Gets adventure choices'
+              args:
+                ParentID: Int!
