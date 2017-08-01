@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { graphql } from 'react-apollo';
+import {
+  graphql,
+  compose,
+} from 'react-apollo';
+import { connect } from 'react-redux';
 
 import readAdventure from 'graphql/readAdventure';
 import ViewBox from 'components/layout/ViewBox';
@@ -12,6 +16,7 @@ class Game extends Component {
     if (this.props.data.readAdventurePages !== undefined) {
       page = this.props.data.readAdventurePages.edges[0].node;
     }
+
     return (
       <div className="app">
         <ViewBox page={page} />
@@ -21,6 +26,13 @@ class Game extends Component {
   }
 }
 
+function mapStateToProps(state) {
+  return {
+    current: state.game.current,
+  };
+}
+
+
 Game.propTypes = {
   data: PropTypes.shape({
     loading: PropTypes.bool,
@@ -29,4 +41,14 @@ Game.propTypes = {
   }).isRequired,
 };
 
-export default graphql(readAdventure)(Game);
+
+export default compose(
+  connect(mapStateToProps),
+  graphql(readAdventure, {
+    options: ({ current }) => ({
+      variables: {
+        id: current,
+      },
+    }),
+  }),
+)(Game);

@@ -1,8 +1,8 @@
 import gql from 'graphql-tag';
 
 export default gql`
-  query {
-    readAdventurePages(ID: 1) {
+  query($id: Int!) {
+    readAdventurePages(ID: $id) {
       edges {
         node {
           ID,

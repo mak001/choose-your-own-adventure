@@ -2,11 +2,11 @@ import {
   combineReducers,
 } from 'redux';
 
-import dataReducer from 'reducers/gameReducer';
+import gameReducer from 'reducers/gameReducer';
 
 export default function reducers(client) {
   return combineReducers({
-    data: dataReducer,
+    game: gameReducer,
     client: client.reducer(),
   });
 }

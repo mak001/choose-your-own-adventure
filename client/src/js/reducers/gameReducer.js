@@ -1,7 +1,7 @@
 import ActionType from 'actions/ActionTypes';
 
 const defaultState = {
-  current: 0,
+  current: 1,
 };
 
 export default function reducer(state = defaultState, action) {

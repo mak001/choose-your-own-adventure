@@ -6,8 +6,23 @@ import { goTo } from 'actions/gameActions';
 
 class TextBox extends Component {
   renderChoices() {
-    console.log(this.props.page.Choices.edges);
-    return this.props.page.Choices.edges.map(choice => (
+    const choices = this.props.page.Choices.edges;
+    console.log(choices);
+    if (choices.length === 1 && (
+      choices[0].node.Content === undefined ||
+        choices[0].node.Content === null ||
+        choices[0].node.Content === '')) {
+
+      const choice = choices[0];
+      return (
+        <li
+          key={choice.node.ID}
+          onClick={() => { this.props.dispatch(goTo(choice.node.GoTo.ID)); }}
+        >Continue...</li>
+      );
+    }
+
+    return choices.map(choice => (
       <li
         key={choice.node.ID}
         onClick={() => { this.props.dispatch(goTo(choice.node.GoTo.ID)); }}
