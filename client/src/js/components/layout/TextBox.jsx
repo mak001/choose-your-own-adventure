@@ -7,26 +7,24 @@ import { goTo } from 'actions/gameActions';
 class TextBox extends Component {
   renderChoices() {
     const choices = this.props.page.Choices.edges;
-    console.log(choices);
     if (choices.length === 1 && (
       choices[0].node.Content === undefined ||
-        choices[0].node.Content === null ||
-        choices[0].node.Content === '')) {
-
+      choices[0].node.Content === null ||
+      choices[0].node.Content === '')) {
       const choice = choices[0];
       return (
-        <li
+        <button
           key={choice.node.ID}
           onClick={() => { this.props.dispatch(goTo(choice.node.GoTo.ID)); }}
-        >Continue...</li>
+        >Continue...</button>
       );
     }
 
     return choices.map(choice => (
-      <li
+      <button
         key={choice.node.ID}
         onClick={() => { this.props.dispatch(goTo(choice.node.GoTo.ID)); }}
-      >{choice.node.Content}</li>
+      >{choice.node.Content}</button>
     ));
   }
 
@@ -36,9 +34,9 @@ class TextBox extends Component {
         <div className="content">
           {this.props.page.Content}
         </div>
-        <ul className="choices">
+        <div className="choices">
           {this.renderChoices()}
-        </ul>
+        </div>
       </div>
     );
   }

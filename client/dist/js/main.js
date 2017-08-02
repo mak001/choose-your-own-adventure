@@ -236,12 +236,11 @@ var TextBox = function (_Component) {
       var _this2 = this;
 
       var choices = this.props.page.Choices.edges;
-      console.log(choices);
       if (choices.length === 1 && (choices[0].node.Content === undefined || choices[0].node.Content === null || choices[0].node.Content === '')) {
 
         var choice = choices[0];
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'li',
+          'button',
           {
             key: choice.node.ID,
             onClick: function onClick() {
@@ -254,7 +253,7 @@ var TextBox = function (_Component) {
 
       return choices.map(function (choice) {
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'li',
+          'button',
           {
             key: choice.node.ID,
             onClick: function onClick() {
@@ -277,7 +276,7 @@ var TextBox = function (_Component) {
           this.props.page.Content
         ),
         __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-          'ul',
+          'div',
           { className: 'choices' },
           this.renderChoices()
         )
@@ -356,7 +355,7 @@ var ViewBox = function (_Component) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_graphql_tag__ = __webpack_require__(86);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_graphql_tag___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_graphql_tag__);
-var _templateObject = _taggedTemplateLiteral(['\n  query($id: Int!) {\n    readAdventurePages(ID: $id) {\n       edges {\n         node {\n           ID,\n           Content,\n           Choices {\n             edges {\n               node {\n                 ID,\n                 Content,\n                 GoTo {\n                   ID\n                 }\n               }\n             }\n           }\n         }\n       }\n     }\n   }\n'], ['\n  query($id: Int!) {\n    readAdventurePages(ID: $id) {\n       edges {\n         node {\n           ID,\n           Content,\n           Choices {\n             edges {\n               node {\n                 ID,\n                 Content,\n                 GoTo {\n                   ID\n                 }\n               }\n             }\n           }\n         }\n       }\n     }\n   }\n']);
+var _templateObject = _taggedTemplateLiteral(['\n  query($id: Int!) {\n    readAdventurePages(ID: $id) {\n      edges {\n        node {\n          ID,\n          Content,\n          Choices {\n            edges {\n              node {\n                ID,\n                Content,\n                GoTo {\n                  ID\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n'], ['\n  query($id: Int!) {\n    readAdventurePages(ID: $id) {\n      edges {\n        node {\n          ID,\n          Content,\n          Choices {\n            edges {\n              node {\n                ID,\n                Content,\n                GoTo {\n                  ID\n                }\n              }\n            }\n          }\n        }\n      }\n    }\n  }\n']);
 
 function _taggedTemplateLiteral(strings, raw) { return Object.freeze(Object.defineProperties(strings, { raw: { value: Object.freeze(raw) } })); }
 

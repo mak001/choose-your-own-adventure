@@ -86,7 +86,7 @@ module.exports = {
         test: /\.(png|gif|jpe?g|svg)$/,
         loader: 'file-loader',
         options: {
-          name: Path.join('images/', '[name].[ext]'),
+          name: Path.join('images', '[name].[ext]'),
         },
       },
       {
@@ -94,7 +94,7 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'file-loader',
         options: {
-          name: Path.join('fonts/', '[name].[ext]'),
+          name: Path.join('fonts', '[name].[ext]'),
         },
       },
     ],

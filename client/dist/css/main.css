@@ -119,10 +119,16 @@
   padding: 0;
 }
 
-.text-box .choices li {
+.text-box .choices button {
+  display: block;
+  width: 100%;
+  text-transform: initial;
   color: dodgerblue;
+  background-color: transparent;
+  border: none;
   padding: 5px;
-  cursor: pointer;
+  margin: 0;
+  outline: none;
 }
 
 
