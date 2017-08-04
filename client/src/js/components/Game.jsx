@@ -32,7 +32,6 @@ function mapStateToProps(state) {
   };
 }
 
-
 Game.propTypes = {
   data: PropTypes.shape({
     loading: PropTypes.bool,
@@ -40,7 +39,6 @@ Game.propTypes = {
     readAdventurePages: PropTypes.object,
   }).isRequired,
 };
-
 
 export default compose(
   connect(mapStateToProps),

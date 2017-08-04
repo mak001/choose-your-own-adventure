@@ -237,7 +237,6 @@ var TextBox = function (_Component) {
 
       var choices = this.props.page.Choices.edges;
       if (choices.length === 1 && (choices[0].node.Content === undefined || choices[0].node.Content === null || choices[0].node.Content === '')) {
-
         var choice = choices[0];
         return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
           'button',
@@ -402,9 +401,8 @@ function reducer() {
 "use strict";
 
 var ActionTypes = {
-  FETCH_DATA_LOADING: 'FETCH_DATA_LOADING',
-  FETCH_DATA_SUCCESS: 'FETCH_DATA_SUCCESS',
-  FETCH_DATA_ERROR: 'FETCH_DATA_ERROR',
+  QUERY_INIT: 'APOLLO_QUERY_INIT',
+  QUERY_RESULT: 'APOLLO_QUERY_RESULT',
 
   GO_TO: 'GO_TO'
 };
