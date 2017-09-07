@@ -2,6 +2,7 @@
 
 namespace Dynamic\Adventure\Models;
 
+use SilverStripe\Assets\Image;
 use SilverStripe\ORM\DataObject;
 
 class AdventurePage extends DataObject
@@ -19,6 +20,10 @@ class AdventurePage extends DataObject
      */
     private static $db = array(
         'Content' => 'Varchar(255)'
+    );
+
+    private static $has_one = array(
+        'Image' => Image::class
     );
 
     /**

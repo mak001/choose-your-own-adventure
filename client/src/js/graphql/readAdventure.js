@@ -5,13 +5,17 @@ export default gql`
     readAdventurePages(ID: $id) {
       edges {
         node {
-          ID,
-          Content,
+          ID
+          Content
+          Image {
+            ID
+            Link
+          }
           Choices {
             edges {
               node {
-                ID,
-                Content,
+                ID
+                Content
                 GoTo {
                   ID
                 }

@@ -2,9 +2,20 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
+import client from 'boot/index'
 import { goTo } from 'actions/gameActions';
+import readAdventure from 'graphql/readAdventure';
 
 class TextBox extends Component {
+  prefetchNext(id) {
+    client.query({
+      query: readAdventure,
+      variables: {
+        id: id,
+      },
+    });
+  }
+
   renderChoices() {
     const choices = this.props.page.Choices.edges;
     if (choices.length === 1 && (
@@ -16,6 +27,7 @@ class TextBox extends Component {
         <button
           key={choice.node.ID}
           onClick={() => { this.props.dispatch(goTo(choice.node.GoTo.ID)); }}
+          onMouseOver={this.prefetchNext(choice.node.GoTo.ID)}
         >Continue...</button>
       );
     }
@@ -24,6 +36,7 @@ class TextBox extends Component {
       <button
         key={choice.node.ID}
         onClick={() => { this.props.dispatch(goTo(choice.node.GoTo.ID)); }}
+        onMouseOver={this.prefetchNext(choice.node.GoTo.ID)}
       >{choice.node.Content}</button>
     ));
   }

@@ -19,7 +19,7 @@ import Game from 'components/Game';
 import 'main.scss';
 
 // only the first container is used, can change to querySelectorAll() for multiple instances
-const container = document.querySelector('.adventure_game');
+const container = document.querySelector('.adventure-game');
 
 const client = new ApolloClient({
   networkInterface: createNetworkInterface({
@@ -46,3 +46,5 @@ ReactDom.render(
     <Game />
   </ApolloProvider>
   , container);
+
+export default client;

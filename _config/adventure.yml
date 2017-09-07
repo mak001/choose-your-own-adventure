@@ -10,6 +10,7 @@ SilverStripe\GraphQL\Controller:
           fields:
             ID: 'The unique identifier of the adventure page'
             Content: 'The text of the adventure page'
+            Image: 'An image for the page'
           operations:
             read:
               description: 'Gets adventure pages'
@@ -29,3 +30,10 @@ SilverStripe\GraphQL\Controller:
               description: 'Gets adventure choices'
               args:
                 ParentID: Int!
+        SilverStripe\Assets\Image:
+          fields:
+            ID: 'The unique identifier of the image'
+            Link: 'The Link of the image'
+          operations:
+            read:
+              description: 'Gets an image'

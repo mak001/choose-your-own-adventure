@@ -1,6 +1,6 @@
 <% require css('adventure/client/dist/css/main.css') %>
 
-<div class="adventure_game" data-api-url="$ApiUrl">
+<div class="adventure-game" data-api-url="$ApiUrl">
     <div class="todo">
         <header><h1>Todo list</h1></header>
         <div class="body flex flex--from-top">

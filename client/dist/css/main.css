@@ -76,13 +76,14 @@
   }
 }
 
-.view-box {
+.adventure-game .view-box {
   -webkit-box-flex: 1;
           flex-grow: 1;
   position: relative;
+  overflow: hidden;
 }
 
-.view-box div {
+.adventure-game .view-box div {
   position: absolute;
   top: 0;
   left: 0;
@@ -92,12 +93,16 @@
   background-position: center;
 }
 
-.view-box embed {
+.adventure-game .view-box embed,
+.adventure-game .view-box img {
   position: absolute;
   top: 0;
   left: 0;
   height: 100%;
   width: 100%;
+  margin: 0;
+  border: 0;
+  padding: 0;
 }
 
 .text-box {
